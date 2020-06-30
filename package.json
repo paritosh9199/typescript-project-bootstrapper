@@ -1,27 +1,30 @@
 {
   "name": "typescript-project-template",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A simple template for making TypeScript projects.",
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
+    "start:dev": "concurrently \"tsc -w\" \"nodemon dist\\app.js\"",
+    "linter": "eslint src/**/*.{ts,js,jsx}",
+    "linter:fix": "eslint src/**/*.{ts,js,jsx} --fix",
     "prebuild": "echo prebuild",
     "build": "tsc -b",
-    "start:dev": "concurrently \"tsc -w\" \"nodemon dist\\app.js\"",
+    "watch": "tsc -w",
     "pretest": "eslint --ignore-path .gitignore --ext ts,tsx,js,jsx src/*",
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paritosh9199/collab-project.git"
+    "url": "git+https://github.com/paritosh9199/typescript-project-bootstrapper.git"
   },
   "author": "Paritosh Srivastava",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/paritosh9199/collab-project/issues"
+    "url": "https://github.com/paritosh9199/typescript-project-bootstrapper/issues"
   },
-  "homepage": "https://github.com/paritosh9199/collab-project#readme",
+  "homepage": "https://github.com/paritosh9199/typescript-project-bootstrapper#readme",
   "devDependencies": {
     "@types/chai": "^4.2.10",
     "@types/mocha": "^7.0.2",
